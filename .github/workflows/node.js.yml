@@ -16,8 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -43,5 +42,9 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          ls -lah  
+          cd ~/app/calculate
+          git pull origin master
+          ~/.nvm/versions/node/v12.19.0/bin/npm install
+          ~/.nvm/versions/node/v12.19.0/bin/pm2 restart all
+
 
