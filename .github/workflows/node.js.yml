@@ -42,7 +42,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd ~/app/calculate
+          cd ~/app/calculator
           git pull origin master
           ~/.nvm/versions/node/v12.19.0/bin/npm install
           ~/.nvm/versions/node/v12.19.0/bin/pm2 restart all
